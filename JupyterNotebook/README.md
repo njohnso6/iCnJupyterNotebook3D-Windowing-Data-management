@@ -30,7 +30,7 @@ From PyPI:
 Usage
 -----
 
-Open a notebook
+Open a notebook in Chrome (Safari seems to have problem in displaying it)
 
     jupyter notebook
 
