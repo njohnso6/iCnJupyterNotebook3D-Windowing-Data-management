@@ -4,6 +4,8 @@
 
 Jupyter Notebook is a convenient way to do data analysis. It will be great if iCn3D can be embedded in Jupyter Notebook with all features. The current preliminary version of icn3dpy has several limits. It works in Chrome, but has some problemsin Safari. The Jquery dialogs don't show up. It will be good to separate iCn3D dialogs such as "Sequences & Annotations" from the 3D view.
 
+The instructions are listed under the directory Jupyter Notebook in this depository. icn3dpy is released at https://pypi.org/project/icn3dpy/.
+
 <b>Windowing Data management</b>: 
 
 As the program grows in functionality, it inevitably grows in complexity.  It is imperative that we think about issues on usability.  For example we now can generate many windows containing valuable information that can overwhelm non expert users, or even expert users.  Managing these windows efficiently becomes important, as is managing the data they contain for project management, publication, storage, for second level analysis, etc.   A group reflecting on usability, complexity, prototyping new user interface functions or improving them, such as multi windowing, project and data management, etc. is welcome to come forward for a hackathon project …  
