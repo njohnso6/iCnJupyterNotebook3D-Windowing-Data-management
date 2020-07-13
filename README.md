@@ -2,7 +2,9 @@
 
 <b>iCn3D in Jupyter Notebook</b>: 
 
-Jupyter Notebook is a convenient way to do data analysis. It will be great if iCn3D can be embedded in Jupyter Notebook with all features. The current preliminary version of icn3dpy has several limits. It works in Chrome, but has some problemsin Safari. The Jquery dialogs don't show up. It will be good to separate iCn3D dialogs such as "Sequences & Annotations" from the 3D view.
+Jupyter Notebook is a convenient way to do data analysis. It will be great if iCn3D can be embedded in Jupyter Notebook with all features. 
+
+The current preliminary version of icn3dpy has several issues. 1. It works in CHrome, but not Safari. 2. After “view”, the page asked whether to leave the page. 3. When refreshing the page, the page keeps refreshing.
 
 The instructions are listed under the directory Jupyter Notebook in this depository. icn3dpy is released at https://pypi.org/project/icn3dpy/.
 
