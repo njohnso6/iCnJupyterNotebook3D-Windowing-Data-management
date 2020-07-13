@@ -1,4 +1,4 @@
-# iCn3D in Jupyter Notebook, Windowing Data management, Reference numbering and Mapping 
+# iCn3D in Jupyter Notebook, Windowing Data management
 
 <b>iCn3D in Jupyter Notebook</b>: 
 
