@@ -38,7 +38,7 @@ and issue
 
 ```Python
 import icn3dpy
-view = icn3dpy.view(q='mmdbid:1tup',command='color spectrum')
+view = icn3dpy.view(q='mmdbid=1tup',command='color spectrum')
 view
 ```
 
