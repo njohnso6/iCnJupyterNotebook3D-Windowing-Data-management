@@ -1,5 +1,6 @@
 import IPython.display
 import time, json
+from urllib.parse import unquote
 
 class view(object):
     '''A class for constructing embedded iCn3D viewer in ipython notebooks.
@@ -9,8 +10,8 @@ class view(object):
     '''
     def __init__(self,width=640,height=480,q="",para="",command="",full=1,v=""):
         '''Create a iCn3D view.
-            width -- width in pixels of container
-            height -- height in pixels of container
+            width -- width of 3D canvas in pixels
+            height -- height of 3D canvas in pixels
             q -- query, e.g., q='mmdbid=1kq2'
             para -- iCn3D parameters (e.g., para='showanno=1&show2d=1') defined at www.ncbi.nlm.nih.gov/Structure/icn3d/icn3d.html#parameters
             command -- iCn3D commands (e.g., command='color spectrum') defined at www.ncbi.nlm.nih.gov/Structure/icn3d/icn3d.html#commands
@@ -29,10 +30,10 @@ class view(object):
         divid = "icn3dviewerUNIQUEID"
         warnid = "icn3dwarningUNIQUEID"
         self.uniqueid = None
-        self.startjs = '''<div id="%s" style="position: relative; width: %dpx; height: %dpx">
+        self.startjs = '''<div id="%s" style="position: relative; width: %dpx; min-height: %dpx; height: auto">
         <p id="%s" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the extension: <br>
         <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
-        </div>\n''' % (divid,width,height,warnid)
+        </div>\n''' % (divid,width,2*height,warnid)
         self.startjs += '<script>\n'
         self.endjs = '</script>'
         
@@ -88,11 +89,12 @@ css1
 
         self.endjs = "});\n" + self.endjs
         
-        queryArray = q.split(":")
+        queryArray = q.split("=")
         para = para.replace("=", ":")
         para = para.replace("&", ",")
+        command = unquote(command)
 
-        self.startjs += 'cfg = {divid: "%s", "%s": "%s", width: "%spx", height: "%spx", mobilemenu: 1, notebook: 1, command: "%s", %s};\n' % (divid, queryArray[0], queryArray[1], width, height, command, para)
+        self.startjs += 'cfg = {divid: "%s", "%s": "%s", width: "%spx", height: "%spx", mobilemenu: 1, notebook: 1, command: \'%s\', %s};\n' % (divid, queryArray[0], queryArray[1], width, height, command, para)
 
         self.startjs += 'viewerUNIQUEID = new iCn3DUI(cfg);\n'
         
